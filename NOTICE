@@ -1,0 +1,19 @@
+问底 (Wendi)
+Copyright (C) 2026 问底编辑部
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published
+by the Free Software Foundation, version 3.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU Affero General Public License for more details.
+
+Third-party components:
+
+- Shadcn Tailwind 4.13.0 stylesheet: see vendor/shadcn-tailwind-4.13.0.LICENSE.md
+- Bundled font files under public/fonts: SIL Open Font License, see public/fonts/OFL.txt
+- Qoder Sites React starter provenance: see PROVENANCE.md
+
+Dependencies retain their own licenses.
