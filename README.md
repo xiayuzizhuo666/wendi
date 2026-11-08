@@ -6,7 +6,7 @@
 
 - 在线体验：<https://quaestio-ai-krtzz7phy1t.qoder.zone/>
 - 样例 PDF：<https://quaestio-ai-krtzz7phy1t.qoder.zone/samples/mcp.pdf>
-- 状态：2026 Qoder 高校创造力大赛 StudyHack 参赛作品，可运行原型
+- 状态：2026 Qoder 高校创造力大赛 StudyHack 参赛作品，已上线
 
 ## 它解决什么
 
@@ -48,6 +48,21 @@
 - **BYOK**：用户也可以配置自己的 OpenAI-compatible API key；key 保存在浏览器本地，按请求转发，不落服务端。
 - **本地报告库**：报告存在浏览器 IndexedDB，换设备不同步，这是有意的隐私取舍。
 
+## 已知局限
+
+- 演示模式有额度和时间限制（20 分钟、单会话最多 36 次调用、全站 60 会话/天），硬上限是服务端 key 余额；正式评审前需要控制演示并发。
+- 报告保存在本机 IndexedDB，换设备不同步；这是有意的隐私取舍，不是账号体系。
+- 中文搜索 query 目前先改写成英文再检索，来源质量和覆盖会受搜索服务波动影响；rerank 后的深读/追根终测仍需复跑。
+- 它是阅读与判断的辅助材料，不替代医生、律师、会计；关键决定仍应回到原始来源和专业人士。
+
+## 界面
+
+![问底首页](docs/evidence/home.png)
+
+![问底阅读器：样例 MCP](docs/evidence/reader-mcp.png)
+
+样例 PDF：[public/samples/mcp.pdf](public/samples/mcp.pdf)
+
 ## 技术栈
 
 - React 19 + TypeScript + Vite 8
@@ -80,6 +95,15 @@ Edge Function 的本地检查与运行需要 Deno：
 npm run check:function
 npm run dev:function
 ```
+
+## 工程校验
+
+```sh
+npm test       # 4 个测试文件、14 条断言
+npm run build  # tsc --noEmit + Vite 生产构建
+```
+
+测试覆盖来源分级（L1–L6）、可信度五信号、Agent 的 zod schema（对象类型、中文置信/立场映射、rerank、QA 状态）和格式化/字数统计；不依赖模型 key，可在本地稳定复跑。
 
 ## 配置
 
